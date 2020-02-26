@@ -19,17 +19,15 @@ const breads = [
     }
 ];
 
-let selectedBreadId = "";
+let selectedBreadId;
 
 const getBreads = () => {
     return breads;
 }
 
-const setSelectedBread = (breadId) => {
-    selectedBreadId = breadId;
-    console.log("selectedBreadId", selectedBreadId);
+const setSelectedBread = (breadObject) => {
+    selectedBreadId = breadObject;
+    console.log(selectedBreadId);
 }
-
-console.log(breads.length);
 
 export default { getBreads, setSelectedBread };

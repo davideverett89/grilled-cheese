@@ -16,7 +16,9 @@ const makeBreadRadioButtons = () => {
 
 const breadSelection = (e) => {
     const buttonId = e.target.id;
-    breadData.setSelectedBread(buttonId);
+    const breads = breadData.getBreads();
+    let chosenBread = breads.find((x) => x.id === buttonId);
+    breadData.setSelectedBread(chosenBread);
 }
 
 const breadEvents = () => {

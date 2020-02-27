@@ -19,15 +19,20 @@ const cheeses = [
     },
 ];
 
-let selectedCheeseObject;
+let selectedCheeses = [];
+
+const setCheese = (cheeseButtonId) => {
+    const pickedCheese = cheeses.find((x) => x.id === cheeseButtonId);
+    selectedCheeses.push(pickedCheese);
+    console.log(pickedCheese);
+}
 
 const getCheese = () => {
     return cheeses;
 }
 
-const setSelectedCheese = (cheeseId) => {
-    selectedCheeseObject = cheeseId;
-    console.log(selectedCheeseObject);
+const getSelectedCheese = () => {
+    return selectedCheeses;
 }
 
-export default { getCheese, setSelectedCheese };
+export default { getCheese, setCheese, getSelectedCheese };

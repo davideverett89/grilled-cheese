@@ -1,21 +1,21 @@
 import utilites from '../helpers/utilities.js';
 import cheeseData from '../helpers/data/cheeseData.js';
+import sandwich from '../components/sandwich.js';
 
 const makeCheeseButtons = () => {
     const cheeses = cheeseData.getCheese();
     let domString = "";
     cheeses.forEach((cheese) => {
-        domString += `<button id="${cheese.id}" type="button" class="btn btn-primary cheese-button">${cheese.type}</button>`;
+        domString += `<button id="${cheese.id}" type="button" class="btn btn-primary cheese-button m-3">${cheese.type}</button>`;
     })
     utilites.printToDom("cheese-container", domString);
     cheeseEvents();
 }
 
 const selectedCheese = (e) => {
-    const cheeseId = e.target.id;
-    const cheeses = cheeseData.getCheese();
-    let pickedCheese = cheeses.find((x) => x.id === cheeseId);
-    cheeseData.setSelectedCheese(pickedCheese);
+    const cheeseButtonId = e.target.id;
+    cheeseData.setCheese(cheeseButtonId);
+    sandwich.sandwichMaker();
 }
 
 const cheeseEvents = () => {
